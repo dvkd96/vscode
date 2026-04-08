@@ -1,0 +1,9 @@
+{
+  "name": "SubSync",
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "env": {
+    "NEXTAUTH_SECRET": "@subsync_nextauth_secret"
+  },
+  "framework": "nextjs"
+}
