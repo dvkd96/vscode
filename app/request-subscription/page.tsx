@@ -10,7 +10,7 @@ import { getAuthToken } from '@/lib/client-auth';
 import { useSubsyncStore } from '@/store/useSubsyncStore';
 import { ALL_SUBSCRIPTIONS, TOP_SUBSCRIPTIONS } from '@/lib/subscription-catalog';
 
-export default function RequestSubscriptionPage() {
+function RequestSubscriptionContent() {
   const searchParams = useSearchParams();
   const addToast = useSubsyncStore((state) => state.addToast);
   const [isLoading, setIsLoading] = React.useState(false);
@@ -173,5 +173,13 @@ export default function RequestSubscriptionPage() {
         </motion.div>
       </div>
     </div>
+  );
+}
+
+export default function RequestSubscriptionPage() {
+  return (
+    <React.Suspense fallback={<div className="min-h-screen" />}>
+      <RequestSubscriptionContent />
+    </React.Suspense>
   );
 }
