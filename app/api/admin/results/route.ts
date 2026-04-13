@@ -1,5 +1,4 @@
 import { query } from '@/lib/db';
-import { withAdminAuth } from '@/lib/middleware';
 import { errorResponse, successResponse } from '@/lib/api';
 
 async function handleGET() {
@@ -63,4 +62,7 @@ async function handleGET() {
   }
 }
 
-export const GET = withAdminAuth(async () => handleGET());
+export const GET = async (_request: Request) => handleGET();
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+export const fetchCache = 'force-no-store';

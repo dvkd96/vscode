@@ -83,3 +83,6 @@ async function handlePOST(request: AuthenticatedRequest) {
 
 export const GET = handleGET;
 export const POST = withAuth(handlePOST);
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+export const fetchCache = 'force-no-store';

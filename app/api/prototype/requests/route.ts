@@ -46,4 +46,7 @@ async function handleGET() {
 }
 
 export const POST = withAuth(handlePOST);
-export const GET = withAuth(async () => handleGET());
+export const GET = withAuth(async (_request: AuthenticatedRequest) => handleGET());
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+export const fetchCache = 'force-no-store';

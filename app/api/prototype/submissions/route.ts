@@ -1,5 +1,5 @@
 import { query } from '@/lib/db';
-import { withAuth } from '@/lib/middleware';
+import { withAuth, type AuthenticatedRequest } from '@/lib/middleware';
 import { errorResponse, successResponse } from '@/lib/api';
 
 async function handleGET() {
@@ -29,4 +29,7 @@ async function handleGET() {
   }
 }
 
-export const GET = withAuth(async () => handleGET());
+export const GET = withAuth(async (_request: AuthenticatedRequest) => handleGET());
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+export const fetchCache = 'force-no-store';
