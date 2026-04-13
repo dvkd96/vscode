@@ -113,15 +113,12 @@ export default function Home() {
 
         <motion.div className="container-custom relative z-10" style={{ y: heroY, scale: heroScale }}>
           <motion.div
-            initial={{ opacity: 0, y: 48, filter: 'blur(10px)' }}
+            initial={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-center"
           >
             <div>
-              <p className="inline-flex items-center rounded-full border border-white/40 bg-white/60 dark:bg-slate-900/60 px-3 py-1 text-xs md:text-sm font-semibold text-blue-700 mb-6">
-                Campus subscription network
-              </p>
               <h1 className="font-[var(--font-poppins)] text-[2.3rem] md:text-[5rem] leading-[1.02] font-semibold tracking-[-0.03em] text-slate-950 dark:text-slate-50">
                 Find your subscription squad,
                 <br />
@@ -157,8 +154,25 @@ export default function Home() {
                 initial={{ opacity: 0, x: 26, rotate: 5 }}
                 animate={{ opacity: 1, x: 0, rotate: 2 }}
                 transition={{ delay: 0.2, duration: 0.7 }}
-                className="absolute right-0 top-4 w-[88%] h-64 rounded-3xl border border-white/35 bg-gradient-to-br from-slate-100 to-slate-300 dark:from-slate-800 dark:to-slate-700 shadow-2xl"
-              />
+                className="absolute right-0 top-4 w-[88%] h-64 rounded-3xl border border-white/35 bg-gradient-to-br from-slate-100 to-slate-300 dark:from-slate-800 dark:to-slate-700 shadow-2xl p-6"
+              >
+                <p className="text-xs uppercase tracking-[0.14em] text-slate-600 dark:text-slate-300">Campus momentum</p>
+                <p className="text-2xl font-semibold mt-2 text-slate-900 dark:text-slate-50">See demand before you launch.</p>
+                <div className="mt-5 grid grid-cols-3 gap-3 text-center">
+                  <div className="rounded-xl bg-white/85 dark:bg-slate-950/70 p-3">
+                    <p className="text-lg font-semibold">142</p>
+                    <p className="text-xs text-slate-500">requests</p>
+                  </div>
+                  <div className="rounded-xl bg-white/85 dark:bg-slate-950/70 p-3">
+                    <p className="text-lg font-semibold">69</p>
+                    <p className="text-xs text-slate-500">offers</p>
+                  </div>
+                  <div className="rounded-xl bg-white/85 dark:bg-slate-950/70 p-3">
+                    <p className="text-lg font-semibold">31</p>
+                    <p className="text-xs text-slate-500">groups</p>
+                  </div>
+                </div>
+              </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 22, rotate: -6 }}
                 animate={{ opacity: 1, y: 0, rotate: -3 }}
@@ -209,50 +223,39 @@ export default function Home() {
             </div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} className="relative h-[25rem]">
-            <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-blue-200/80 via-cyan-100/80 to-white/90 dark:from-slate-800 dark:to-slate-900 border border-white/40 dark:border-white/10 p-5">
-              <div className="rounded-2xl border border-white/50 dark:border-white/10 bg-white/55 dark:bg-slate-900/45 p-4">
-                <p className="text-xs uppercase tracking-[0.14em] text-slate-600 dark:text-slate-300">Live campus dashboard</p>
-                <div className="mt-3 grid grid-cols-3 gap-3 text-center">
-                  <div className="rounded-xl bg-white/85 dark:bg-slate-950/70 p-3">
-                    <p className="text-lg font-semibold">142</p>
-                    <p className="text-xs text-slate-500">requests</p>
-                  </div>
-                  <div className="rounded-xl bg-white/85 dark:bg-slate-950/70 p-3">
-                    <p className="text-lg font-semibold">69</p>
-                    <p className="text-xs text-slate-500">offers</p>
-                  </div>
-                  <div className="rounded-xl bg-white/85 dark:bg-slate-950/70 p-3">
-                    <p className="text-lg font-semibold">31</p>
-                    <p className="text-xs text-slate-500">active groups</p>
-                  </div>
+          <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} className="relative">
+            <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-blue-200/85 via-cyan-100/75 to-white/90 dark:from-slate-800 dark:to-slate-900 border border-white/40 dark:border-white/10" />
+
+            <div className="relative z-20 p-5 md:p-6">
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45 }}
+                whileHover={{ y: -4 }}
+                className="rounded-2xl bg-white/95 dark:bg-slate-950/90 backdrop-blur-sm border border-white/50 dark:border-white/10 p-5 shadow-lg"
+              >
+                <p className="text-xs uppercase tracking-wide text-blue-700 dark:text-blue-300">Campus command center</p>
+                <p className="text-2xl md:text-[2rem] font-semibold mt-1 text-slate-900 dark:text-slate-50">What SubSync helps you do</p>
+                <div className="mt-4 space-y-3">
+                  {[
+                    'See live demand from students across campus.',
+                    'Match open slots with the right group quickly.',
+                    'Track join status and pricing in one place.',
+                  ].map((item, index) => (
+                    <motion.div
+                      key={item}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.12 + index * 0.12, duration: 0.35 }}
+                      className="flex items-start gap-3 rounded-xl bg-slate-50/80 dark:bg-slate-900/70 px-3 py-2.5"
+                    >
+                      <span className="mt-1 h-2.5 w-2.5 rounded-full bg-blue-500 shrink-0" />
+                      <p className="text-sm md:text-[15px] text-slate-600 dark:text-slate-300 leading-6">{item}</p>
+                    </motion.div>
+                  ))}
                 </div>
-              </div>
+              </motion.div>
             </div>
-            <motion.div
-              whileHover={{ y: -4 }}
-              className="absolute top-6 left-6 right-6 rounded-2xl bg-white/90 dark:bg-slate-900/90 border border-white/40 dark:border-white/10 p-5 shadow-lg"
-            >
-              <p className="text-xs uppercase tracking-wide text-blue-700">Priority Access</p>
-              <p className="text-2xl font-semibold mt-1">Get early access to SubSync</p>
-              <p className="text-sm text-slate-600 dark:text-slate-300 mt-2">Join pilot onboarding, unlock launch perks, and shape the product roadmap.</p>
-            </motion.div>
-            <motion.div
-              initial={{ rotate: -4 }}
-              whileHover={{ rotate: -1, y: -4 }}
-              className="absolute bottom-6 left-3 w-[58%] rounded-2xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-700 p-4 shadow-xl"
-            >
-              <p className="font-semibold">Faster matching</p>
-              <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">High-demand plans fill quicker with visible interest.</p>
-            </motion.div>
-            <motion.div
-              initial={{ rotate: 5 }}
-              whileHover={{ rotate: 1, y: -4 }}
-              className="absolute bottom-10 right-4 w-[48%] rounded-2xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-700 p-4 shadow-xl"
-            >
-              <p className="font-semibold">Instant visibility</p>
-              <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">Know who joined and what is left.</p>
-            </motion.div>
           </motion.div>
         </div>
       </motion.section>
@@ -301,8 +304,7 @@ export default function Home() {
       >
         <div className="container-custom grid gap-10 lg:grid-cols-[1.2fr_0.8fr] items-start">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false }}>
-            <h2 className="font-[var(--font-poppins)] text-3xl md:text-5xl tracking-[-0.02em]">Live marketplace signal</h2>
-            <p className="text-slate-600 dark:text-slate-300 mt-2 max-w-2xl">A single scrolling feed shows urgency and price clarity without noisy micro-sections.</p>
+            <h2 className="font-[var(--font-poppins)] text-3xl md:text-5xl tracking-[-0.02em]">Active student subscription feed</h2>
             <div className="mt-7 space-y-3">
               {marketplace.slice(0, 4).map((item) => (
                 <motion.div key={item.id} whileHover={{ y: -2 }} className="glass-card px-5 py-4 flex flex-wrap items-center justify-between gap-3">
@@ -389,7 +391,7 @@ export default function Home() {
             <p className="text-slate-800/80 text-lg max-w-3xl">Everything students ask before joining: trust, speed, pricing clarity, and group coordination.</p>
           </motion.div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-12 grid grid-cols-2 gap-4 md:gap-6 md:grid-cols-2 xl:grid-cols-4">
             {faqs.map((item, idx) => {
               const rotations = ['-rotate-2', 'rotate-1', '-rotate-1', 'rotate-2'];
               return (
@@ -401,11 +403,11 @@ export default function Home() {
                   viewport={{ once: false }}
                   whileHover={{ y: -8, rotate: 0 }}
                   onClick={() => setSelectedFaq(idx)}
-                  className={`glass-card ${rotations[idx % rotations.length]} text-left p-6 md:p-7 min-h-56 bg-white/90 dark:bg-slate-950/80`}
+                  className={`glass-card ${rotations[idx % rotations.length]} text-left p-4 md:p-7 min-h-44 md:min-h-56 bg-white/90 dark:bg-slate-950/80`}
                 >
                   <div className="text-3xl text-sky-500 mb-4">{item.icon}</div>
-                  <h3 className="text-xl font-semibold leading-tight">{item.q}</h3>
-                  <p className="text-slate-600 dark:text-slate-300 mt-3 text-sm">Tap to open quick answer</p>
+                  <h3 className="text-lg md:text-xl font-semibold leading-tight">{item.q}</h3>
+                  <p className="text-slate-600 dark:text-slate-300 mt-2 md:mt-3 text-xs md:text-sm">Tap to open quick answer</p>
                 </motion.button>
               );
             })}

@@ -30,3 +30,5 @@ export async function POST(request: NextRequest) {
     return errorResponse('Could not save waitlist entry.', 500);
   }
 }
+
+export const dynamic = 'force-dynamic';

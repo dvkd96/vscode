@@ -72,3 +72,5 @@ export async function POST(request: NextRequest) {
     return errorResponse('Failed to create account', 500);
   }
 }
+
+export const dynamic = 'force-dynamic';

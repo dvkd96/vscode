@@ -78,7 +78,7 @@ export function Navbar({ user }: NavbarProps) {
             ? 'bg-white/75 dark:bg-slate-950/75 backdrop-blur-xl border-b border-white/40 dark:border-white/10 shadow-xl'
             : 'bg-transparent'
         )}
-        initial={{ y: -100 }}
+        initial={{ y: 0 }}
         animate={{ y: 0 }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

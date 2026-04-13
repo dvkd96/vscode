@@ -57,3 +57,5 @@ export async function POST(request: NextRequest) {
     return errorResponse('Authentication failed', 500);
   }
 }
+
+export const dynamic = 'force-dynamic';
